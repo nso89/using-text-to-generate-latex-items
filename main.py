@@ -33,7 +33,6 @@ def main():
 
         output = Path(complete_txt_file_path.parent).joinpath("output").with_suffix(".txt")
 
-
         itemized : List[str] = []
 
         for line in read_from(file = input):
