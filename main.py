@@ -35,7 +35,7 @@ def main():
 
         itemized : List[str] = []
 
-        for line in read_from(file = input):
+        for line in read_from(file = complete_txt_file_path):
             if line.endswith("."):
                 print(f"\item {line}")
                 itemized.append(f"\item {line}")
