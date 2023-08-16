@@ -16,6 +16,14 @@ def verify(parameter: str, name: str) -> None:
         raise ValueError(f"{name} cannot begin or end with an empty space!")
 
 
+def validate_file_type(file_name: Path, acceptable_ext: str = ".txt") -> None:
+    """
+    Check if the file ends with one of the acceptable extensions.                                     
+    """
+    if file_name.suffix != acceptable_ext:
+        raise ValueError("Unacceptable file type!")
+
+
 def read_from(file: Path) -> str:
     with open(file, mode = "r") as f_obj:
         for line in f_obj:
@@ -52,7 +60,7 @@ def main():
         
         write_to_file(file_name = output, items = itemized)
     
-    except (FileNotFoundError, ValueError) as e:
+    except (FileNotFoundError, OSError, ValueError) as e:
         print(e)
         
 if __name__ == '__main__':
