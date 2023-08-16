@@ -2,12 +2,14 @@ from pathlib import Path
 from typing import List
 
 
-def validate_file_type(file_name: Path, acceptable_ext: str = ".txt") -> None:
+def verify(parameter: str, name: str) -> None:
     """
-    Check if the file ends with one of the acceptable extensions.                                     
+    Verify if parameter is blank, if so, raise ValueError.
     """
-    if file_name.suffix != acceptable_ext:
-        raise ValueError("Unacceptable file type!")
+    if not parameter or parameter == '""' or parameter == '" "':
+        raise ValueError(f"{name} cannot be blank!")
+    if parameter.startswith(" ") or parameter.endswith(" "):
+        raise ValueError(f"{name} cannot begin or end with an empty space!")
 
 
 def read_from(file: Path) -> str:
