@@ -29,8 +29,9 @@ def main():
     try:
 
         partial_txt_file_path = input("File Path: ").strip()
+        verify(parameter = partial_txt_file_path, name = "File Path")
+        
         complete_txt_file_path = Path.home().joinpath(partial_txt_file_path)
-
         validate_file_type(file_name = complete_txt_file_path)
 
         output = Path(complete_txt_file_path.parent).joinpath("output").with_suffix(".txt")
